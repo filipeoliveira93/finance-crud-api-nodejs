@@ -1,0 +1,17 @@
+# Arquivos gerados automaticamente
+node_modules/
+npm-debug.log
+
+# Arquivos de ambiente
+.env
+
+# Arquivos de build
+/build
+/dist
+
+# Dependências locais
+/.env.local
+
+# Logs e arquivos temporários
+*.log
+*.tmp
