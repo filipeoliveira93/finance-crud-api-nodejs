@@ -1,1 +1,37 @@
-POST 'http://localhost/3333/transaction'
+POST http://localhost:3333/transaction
+Content-Type: application/json
+
+{
+    "name" : "energia",
+    "value": " 1400",
+    "type": "custos",
+    "category": "moradia"
+}
+
+###
+
+GET http://localhost:3333/transaction?search=aluguel
+
+
+### 
+
+
+GET http://localhost:3333/transaction
+
+
+### 
+
+
+PUT http://localhost:3333/transaction/09384ea2-d7fe-4090-b0ec-e36c49ce6d2b
+Content-Type: application/json
+
+{
+    "name": "energia",
+    "value": " 140",
+    "type": "custos",
+    "category": "moradia"
+}
+
+###
+
+DELETE http://localhost:3333/transaction/7d5c9751-8192-42b1-be58-e10f2d61c025
