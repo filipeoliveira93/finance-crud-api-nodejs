@@ -1,69 +1,64 @@
 import { fastify } from 'fastify';
-import { dbLocal } from './db-local';
-import { NOMEM } from 'node:dns';
+import { dbpostgres } from './db-postgres';
 
-const db = new dbLocal();
+const db = new dbpostgres();
 
 const server = fastify();
 
 server.get('/', () => {
-  return 'hello word';
+    return 'hello word';
 });
 
 server.post<{
-  Body: { name: string; value: number; type: string; category: string };
-}>('/transaction', (request, reply) => {
-  const { name, value, type, category } = request.body;
+    Body: { name: string; value: number; type: string; category: string };
+}>('/transaction', async (request, reply) => {
+    const { name, value, type, category } = request.body;
 
-  db.addTransaction({
-    name,
-    value,
-    type,
-    category
-  });
+    await db.addTransaction({
+        name,
+        value,
+        type,
+        category,
+    });
 
-  return reply.status(201).send();
+    return reply.status(201).send();
 });
 
 server.get<{
-  Querystring: { search?: string };
-}>('/transaction', (request) => {
+    Querystring: { search?: string };
+}>('/transaction', async (request) => {
+    const search = request.query.search;
+    console.log(search);
+    const transactions = await db.listTransactions(search);
 
-  const search = request.query.search;
-  console.log(search)
-  const transactions = db.listTransactions(search);
-
-   return transactions
+    return transactions;
 });
 
 server.put<{
-  Params: { id: string };
-  Body: { name: string; value: number; type: string; category: string };
-}>('/transaction/:id', (request, reply) => {
-  const transactionId = request.params.id;
-  const { name, value, type, category } = request.body;
+    Params: { id: string };
+    Body: { name: string; value: number; type: string; category: string };
+}>('/transaction/:id', async (request, reply) => {
+    const transactionId = request.params.id;
+    const { name, value, type, category } = request.body;
 
-  db.changeTransaction(transactionId, {
-    name,
-    value,
-    type,
-    category
-  });
+    await db.changeTransaction(transactionId, {
+        name,
+        value,
+        type,
+        category,
+    });
 
-  return reply.status(204).send();
+    return reply.status(204).send();
 });
 
 server.delete<{
-  Params: { id: string };
-}>('/transaction/:id', (request, reply) => {
-  const transactionId = request.params.id;
+    Params: { id: string };
+}>('/transaction/:id', async (request, reply) => {
+    const transactionId = request.params.id;
 
-  db.deleteTransaction(transactionId);
+    await db.deleteTransaction(transactionId);
 
-  return reply.status(204).send();
-
+    return reply.status(204).send();
 });
 
-server.listen({ port: 3333 });
-
-console.log('http://localhost:3333');
+server.listen({ port: process.env.PORT ? Number(process.env.PORT) : 3333 });

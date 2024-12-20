@@ -10,7 +10,7 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3333/transaction?search=aluguel
+GET http://localhost:3333/transaction?search=energia
 
 
 ### 
@@ -22,16 +22,16 @@ GET http://localhost:3333/transaction
 ### 
 
 
-PUT http://localhost:3333/transaction/09384ea2-d7fe-4090-b0ec-e36c49ce6d2b
+PUT http://localhost:3333/transaction/c2c8661d-8a05-41fb-88a7-be87007311d4
 Content-Type: application/json
 
 {
-    "name": "energia",
-    "value": " 140",
+    "name": "mercado",
+    "value": "120",
     "type": "custos",
     "category": "moradia"
 }
 
 ###
 
-DELETE http://localhost:3333/transaction/7d5c9751-8192-42b1-be58-e10f2d61c025
+DELETE http://localhost:3333/transaction/97baf407-3634-471b-855f-fae763cab682

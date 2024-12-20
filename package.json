@@ -1,25 +1,30 @@
 {
-  "name": "projeto-crud-nodejs",
-  "version": "1.0.0",
-  "main": "server.js",
-  "type": "module",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "dev": "tsx watch server.ts"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "fastify": "^5.1.0",
-    "postgres": "^3.4.5"
-  },
-  "devDependencies": {
-    "@types/node": "^22.10.1",
-    "prettier": "3.4.2",
-    "tsx": "^4.19.2",
-    "typescript": "^5.7.2"
-  }
+    "name": "projeto-crud-nodejs",
+    "version": "1.0.0",
+    "main": "server.js",
+    "type": "module",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js",
+        "dev": "tsx watch server.ts",
+        "migrate": "tsx node_modules/node-pg-migrate/bin/node-pg-migrate",
+        "create-migration": "tsx node_modules/node-pg-migrate/bin/node-pg-migrate create"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "dependencies": {
+        "fastify": "^5.1.0",
+        "node-pg-migrate": "^7.8.0",
+        "pg": "^8.13.1",
+        "postgres": "^3.4.5"
+    },
+    "devDependencies": {
+        "@types/node": "^22.10.1",
+        "dotenv": "^16.4.7",
+        "prettier": "3.4.2",
+        "tsx": "^4.19.2",
+        "typescript": "^5.7.2"
+    }
 }
