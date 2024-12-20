@@ -50,18 +50,34 @@ npm run migrate up
 
 ## 🚀 Executando o projeto
 
-Para desenvolvimento:
+### Desenvolvimento
 
 ```bash
 npm run dev
 ```
 
-Para produção:
+### Produção
+
+1. Faça o build do projeto:
 
 ```bash
 npm run build
+```
+
+Isso irá compilar os arquivos TypeScript para JavaScript na pasta `dist/`.
+
+2. Inicie o servidor:
+
+```bash
 npm start
 ```
+
+O build do projeto irá:
+
+- Compilar todos os arquivos TypeScript para JavaScript
+- Gerar os arquivos na pasta `dist/`
+- Aplicar as configurações do `tsconfig.json`
+- Manter a tipagem e otimizações do TypeScript
 
 ## 📌 Endpoints da API
 

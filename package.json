@@ -5,8 +5,9 @@
     "type": "module",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node server.js",
+        "start": "node dist/server.js",
         "dev": "tsx watch server.ts",
+        "build": "tsc",
         "migrate": "tsx node_modules/node-pg-migrate/bin/node-pg-migrate",
         "create-migration": "tsx node_modules/node-pg-migrate/bin/node-pg-migrate create"
     },
