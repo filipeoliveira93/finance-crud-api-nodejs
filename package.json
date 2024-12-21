@@ -7,7 +7,7 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node dist/server.js",
         "dev": "tsx watch server.ts",
-        "build": "npx tsc",
+        "build": "tsup src/**/*.ts --format esm --no-splitting",
         "migrate": "tsx node_modules/node-pg-migrate/bin/node-pg-migrate",
         "create-migration": "tsx node_modules/node-pg-migrate/bin/node-pg-migrate create"
     },
@@ -19,13 +19,13 @@
         "fastify": "^5.1.0",
         "node-pg-migrate": "^7.8.0",
         "pg": "^8.13.1",
-        "postgres": "^3.4.5",
-        "tsc": "^2.0.4"
+        "postgres": "^3.4.5"
     },
     "devDependencies": {
         "@types/node": "^22.10.1",
         "dotenv": "^16.4.7",
         "prettier": "3.4.2",
+        "tsup": "^8.3.5",
         "tsx": "^4.19.2",
         "typescript": "^5.7.2"
     }
