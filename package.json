@@ -25,6 +25,7 @@
         "@types/node": "^22.10.1",
         "dotenv": "^16.4.7",
         "prettier": "3.4.2",
+        "tsup": "^8.3.5",
         "tsx": "^4.19.2",
         "typescript": "^5.7.2"
     }

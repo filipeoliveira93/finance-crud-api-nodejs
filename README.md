@@ -53,6 +53,8 @@ npm run migrate up
 
 ### Desenvolvimento
 
+### Desenvolvimento
+
 ```bash
 npm run dev
 ```
@@ -72,8 +74,23 @@ Isso irá compilar os arquivos TypeScript para JavaScript na pasta `dist/`.
 2. Inicie o servidor:
 
 ```bash
+
+```
+
+Isso irá compilar os arquivos TypeScript para JavaScript na pasta `dist/`.
+
+2. Inicie o servidor:
+
+```bash
 npm start
 ```
+
+O build do projeto irá:
+
+- Compilar todos os arquivos TypeScript para JavaScript
+- Gerar os arquivos na pasta `dist/`
+- Aplicar as configurações do `tsconfig.json`
+- Manter a tipagem e otimizações do TypeScript
 
 ## 📌 Endpoints da API
 

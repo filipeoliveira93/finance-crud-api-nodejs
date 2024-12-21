@@ -1,7 +1,7 @@
 import sql from './db-connect';
 
 async function createTable() {
-  await sql`
+    await sql`
     CREATE TABLE transactions (
         id UUID PRIMARY KEY,
         name VARCHAR(255) NOT NULL,
