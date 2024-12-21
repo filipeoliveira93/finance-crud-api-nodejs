@@ -7,7 +7,7 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node dist/server.js",
         "dev": "tsx watch server.ts",
-        "build": "tsup src/**/*.ts --format esm --no-splitting",
+        "build": "tsup src/**/*.ts --format cjs --no-splitting",
         "migrate": "tsx node_modules/node-pg-migrate/bin/node-pg-migrate",
         "create-migration": "tsx node_modules/node-pg-migrate/bin/node-pg-migrate create"
     },
