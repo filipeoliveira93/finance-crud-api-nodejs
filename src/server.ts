@@ -62,4 +62,7 @@ server.delete<{
     return reply.status(204).send();
 });
 
-server.listen({ port: process.env.PORT ? Number(process.env.PORT) : 3333 });
+server.listen({
+    host: '0.0.0.0',
+    port: process.env.PORT ? Number(process.env.PORT) : 3333,
+});
